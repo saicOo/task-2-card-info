@@ -6,11 +6,31 @@ body{
    perspective: 600px;
     overflow: hidden;
 }
-
+.bbg-dark{
+background-color: #18293f
+}
+.bbg-light{
+background-color: #91bfc9ec;
+}
 h1{
     font-size: 60px;
+    margin-top: 30px;
     margin-bottom: 60px;
     font-weight: 200;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+h3,h4{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+}
+p{
+    font-family: 'Ubuntu', sans-serif;
+}
+@media (max-width: 676px){
+    h1{
+    font-size: 40px;
+    }
 }
 .card-bg{
     min-width: 100%;
@@ -35,9 +55,9 @@ h1{
 /* start modal */
 .modal{
     width: 400px;
+    max-width: 100%;
 }
 .card-window{
-    background-color: white;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -47,20 +67,19 @@ h1{
     padding: 0;
     border: 1px solid #999;
     border-radius: 5px;
-    
+    min-height: 50vh;
 }
 .card-window .card-head{
 display: flex;
 justify-content: space-between;
-border-bottom: 1px solid #999 ;
+border-bottom: 1px solid #555 ;
 padding: 10px;
 }
 .card-window .card-head h4{
-    color: #777;
+    color: #333;
 }
 .card-window .card-content{
     margin: 20px;
-    background-color: #666;
     padding: 20px;
     border-radius: 5px;
 }
@@ -89,6 +108,7 @@ padding: 10px;
     position: absolute;
     margin: auto;
     width: 300px;
+    max-width: 98%;
     height: 300px;
     transform-style: preserve-3d;
     transition: all .8s ease-in-out;
@@ -96,7 +116,7 @@ padding: 10px;
     box-shadow: 0 0 15px rgba(252, 0, 0, 0.644);
     top: 200px;
     display: none;
-    left: 200px;
+    left: 50%;
     color: #344;
 }
 .card-info .fa-times-circle{
@@ -124,6 +144,21 @@ padding: 10px;
 .card-info .back{
     z-index: 1001;
     transform: rotateY(180deg) ;
+    padding: 35px 50px;
+    text-align: center;
+}
+.card-info .back h4{
+    margin-bottom: 30px;
+}
+.card-info .back p{
+    line-height: 2;
+}
+.card-info .back .emojy-card{
+font-size: 50px;
+color: #ed563b;
+cursor: pointer;
+margin-top: 30px;
+transition: all .8s ease-in-out;
 }
 .rotate{
     transform: rotateY(180deg);
@@ -154,6 +189,9 @@ margin-bottom: 10px;
 }
 .card-info .body-card{
     padding: 20px;
+}
+.card-info .body-card h3{
+    text-transform: capitalize;
 }
 @media (max-width: 676px){
     .card-info{
