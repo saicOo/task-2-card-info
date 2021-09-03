@@ -153,7 +153,7 @@ padding: 10px;
 .card-info .back p{
     line-height: 2;
 }
-.card-info .back .emojy-card{
+.card-info .back .emoji-card{
 font-size: 50px;
 color: #ed563b;
 cursor: pointer;
@@ -186,6 +186,9 @@ margin-bottom: 10px;
     width: 100%;
     height: 100%;
     border-radius: 50%;
+}
+.card-info .fa-times-circle{
+    color: #ff0000fd;
 }
 .card-info .body-card{
     padding: 20px;

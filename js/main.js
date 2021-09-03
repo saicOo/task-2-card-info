@@ -1,13 +1,11 @@
 let body = document.querySelector('body');
 let darkMode = document.querySelector('.fa-adjust');
+let btnWindow = document.getElementById('btn-window')
 let creatBtn = document.getElementById('btn-creat');
 let cardBg = document.getElementById('card-bg');
 let alertMassage = document.getElementById('alert-massage');
 let taskBox = document.querySelector('ul.task-box');
-let inputTask = document.getElementById('task-input');
 let modal = document.getElementById('card-window');
-let btnWindow = document.getElementById('btn-window');
-let test = document.getElementById('test');
 // ======== var card info
 let backface = document.querySelector('.card-info');
 let conCard = document.querySelector('.container-card');
@@ -22,29 +20,7 @@ let ageCard = document.getElementById('info-age');
 let btnCreat = document.getElementById('btn-creat');
 let changeImage = document.querySelectorAll('.card-content .image img');
 // ================================================
-////////////////////   Dark mode   /////////////////
-function dark (){
-    if(cardBg.classList.contains('bbg-light')){
-        body.style.backgroundColor = "black";
-        body.style.color = "white";
-        cardBg.classList.add('bbg-dark');
-        cardBg.classList.remove('bbg-light');
-        modal.classList.add('bbg-dark');
-        modal.classList.remove('bbg-light');
-        // btnWindow.classList = "btn btn-info w-100";
-        // cardBg.classList = "card-bg bg-light";
-    }else{
-        body.style.backgroundColor = "white";
-        body.style.color = "black";
-        // btnWindow.classList.toggle('');
-        cardBg.classList.add('bbg-light');
-        cardBg.classList.remove('bbg-dark');
-        modal.classList.add('bbg-light');
-        modal.classList.remove('bbg-dark');
-        };
-        
-    };
-    darkMode.addEventListener('click', (dark) );
+let x = 0;
 ///////////////////   ToDo List   ///////////////////////////   
 // ============= func change image =============
 let cratImage ;
@@ -80,17 +56,18 @@ function genderSelection() {
     }
 }
 // ==================
+//////////// function Create alerts lists and the card info ////////////
 let creatCard =  ()  => {
     let fristNameData = fristName.value;
     let lastNameData = lastName.value;
     let ageData = age.value;
     if(fristNameData.trim() == "" || lastNameData.trim() == "" || ageData.trim() == "" || fristNameData.length > 12 || lastNameData.length > 12 || ageData.length > 2){
         alertMassage.style.display = "block"; 
-        window.alert('pleace creat data')
+        window.alert('data error 🥺 Please enter correct data')
     }else{
-        console.log(typeof(ageData[1]))
+        ++ x;
          taskBox.innerHTML +=
-        `<li class="alert task alert-info">Your Name: ${fristNameData} ${lastNameData} Age: ${ageData} Gender: ${genderSelection()}<button class="btn btn-danger task-delete">Delete</button></li>`;
+        `<li class="alert task alert-info">${x}- Task From ${fristNameData} Click Here<button class="btn btn-danger task-delete">Delete</button></li>`;
         conCard.innerHTML += `<div class="card-info">
         <div class="front">
             <div class="head-card">
@@ -108,61 +85,79 @@ let creatCard =  ()  => {
         <div class="back">
             <h4>Hey ${fristNameData}!!!</h4>
             <p>Thankyou so much for joining our "community"</p>
-            <i class="fas fa-smile emojy-card"></i>
+            <i class="fas fa-smile emoji-card"></i>
         </div>
     </div>`
         alertMassage.style.display = "none";
         fristName.value = "";
         lastName.value = "";
         age.value = "";
+        window.alert('Your card has been created 🥰');
         
     };
+    // ========= Create an array of variables =========
         let closeCard = document.querySelectorAll('.fa-times-circle')
         let tasks = document.querySelectorAll('.task');
         let tasksDeletes = document.querySelectorAll('.task-delete');
         let cardsInfos = document.querySelectorAll('.card-info');
-        let emojyCard = document.querySelectorAll('.emojy-card');
-       
+        let emojiCard = document.querySelectorAll('.emoji-card');
+    //    ===============================================
+    // ======== For Loop Create an array of cards =========
         for (let i = 0; i < tasks.length; i++) {
             tasks[i].addEventListener('click', () =>{
                 cardsInfos[i].classList.toggle('display-card');
             });
             tasksDeletes[i].onclick = () =>{
                 cardsInfos[i].remove();
-                tasks[i].remove()
+                tasks[i].remove();
             };
             closeCard[i].onclick = () => {
                 cardsInfos[i].classList.toggle('display-card');
             }
-             // ============ rotate card  ============
+        // ============ rotate card  ============
         cardsInfos[i].addEventListener('dblclick',() =>{
             cardsInfos[i].classList.toggle("rotate");
         });
         // =========================================
-        // ====== emojy ======
-        emojyCard[i].addEventListener('click', () =>{
-            if(emojyCard[i].classList.contains('fa-smile')){
-                emojyCard[i].classList = 'fas fa-laugh-wink emojy-card';
+        // ====== change emoji ======
+        emojiCard[i].addEventListener('click', () =>{
+            if(emojiCard[i].classList.contains('fa-smile')){
+                emojiCard[i].classList = 'fas fa-laugh-wink emoji-card';
             }else{
-                emojyCard[i].classList = 'fas fa-smile emojy-card';
+                emojiCard[i].classList = 'fas fa-smile emoji-card';
             }
-           });
-           if(cardBg.classList.contains('bbg-dark')){
-            console.log("SASSS")
-         cardsInfos[i].style.boxShadow = '0 0 15px rgba(0, 25, 252, 0.801)'
+        });
+        // =================================
+        // ======== change color box Shadow in card =========
+        if(cardBg.classList.contains('bbg-dark')){
+        cardsInfos[i].style.boxShadow = '0 0 15px rgba(0, 25, 252, 0.801)'
         }else{
-         cardsInfos[i].style.boxShadow = '0 0 15px rgba(252, 0, 0, 0.644)'
+        cardsInfos[i].style.boxShadow = '0 0 15px rgba(252, 0, 0, 0.644)'
         }
         };
-       
-  
+        // End For Loop ===============
 };
-
-
-
 creatBtn.addEventListener('click',creatCard);
-
 document.addEventListener('click', (e) =>{
     noTasksShow();
 });
-
+// ==================================================
+////////////////////   Dark mode   /////////////////
+function dark (){
+    if(cardBg.classList.contains('bbg-light')){
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        cardBg.classList.add('bbg-dark');
+        cardBg.classList.remove('bbg-light');
+        modal.classList.add('bbg-dark');
+        modal.classList.remove('bbg-light');
+    }else{
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+        cardBg.classList.add('bbg-light');
+        cardBg.classList.remove('bbg-dark');
+        modal.classList.add('bbg-light');
+        modal.classList.remove('bbg-dark');
+        };
+    };
+    darkMode.addEventListener('click', (dark) );
