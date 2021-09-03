@@ -1,0 +1,173 @@
+body{
+    min-height: 100vh;
+   background-color: white;
+   color: black;
+   transition: color ,background .5s ease-in-out;
+   perspective: 600px;
+    overflow: hidden;
+}
+
+h1{
+    font-size: 60px;
+    margin-bottom: 60px;
+    font-weight: 200;
+}
+.card-bg{
+    min-width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+.task-box{
+    list-style: none;
+    padding-left: 0;
+}
+.alert-info{
+    position: relative;
+    
+}
+.btn-danger{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* start modal */
+.modal{
+    width: 400px;
+}
+.card-window{
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    display: none;
+    padding: 0;
+    border: 1px solid #999;
+    border-radius: 5px;
+    
+}
+.card-window .card-head{
+display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #999 ;
+padding: 10px;
+}
+.card-window .card-head h4{
+    color: #777;
+}
+.card-window .card-content{
+    margin: 20px;
+    background-color: #666;
+    padding: 20px;
+    border-radius: 5px;
+}
+.card-content .image{
+    margin-left: 140px;
+    display: inline-block;
+}
+.card-content .image img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 7px;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+.card-content .image img:hover{
+    box-shadow: 0 0 15px rgb(36, 30, 30);
+}
+/* end modal */
+.block{
+    display: block;
+}
+
+/* start card */
+.card-info{
+    position: absolute;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: all .8s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(252, 0, 0, 0.644);
+    top: 200px;
+    display: none;
+    left: 200px;
+    color: #344;
+}
+.card-info .fa-times-circle{
+    cursor: pointer;
+    font-size: 30px;
+    margin-top: 20px;
+}
+.display-card{
+    display: block;
+}
+.card-info > div{
+    background-color: rgb(240, 240, 240);
+    padding: 0;
+    border: 1px solid rgb(245, 222, 222);
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.card-info .front{
+    z-index: 1002;
+}
+.card-info .back{
+    z-index: 1001;
+    transform: rotateY(180deg) ;
+}
+.rotate{
+    transform: rotateY(180deg);
+}
+.head-card{
+height: 90px;
+padding: 10px;
+background-color: #ed563b;
+margin-bottom: 10px;
+}
+.card-info .image{
+    width: 100px;
+    height: 100px;
+    border: 3px solid #999;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: 5px;
+}
+.card-info img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.card-info .body-card{
+    padding: 20px;
+}
+@media (max-width: 676px){
+    .card-info{
+    top: 200px;
+    left: 20px;
+    }
+}
+/* end card */
+/* start dark mood */
+.fa-adjust{
+    cursor: pointer;
+    font-size: 40px;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    }
+/* end dark mood*/

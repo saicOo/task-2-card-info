@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <!-- start Enter Task -->
+    <div class="task-body text-center">
+        <div class="container">
+            <h1>Create an identification card</h1>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <button id="btn-window" class="btn btn-primary w-100">Add Task Form Here</button>
+                </div>
+            </div>
+            <!-- start box alert -->
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div id="card-bg" class="card-bg bg-secondary">
+                    <div id="alert-massage" class="alert alert-danger">NO Data Added Yet</div>
+                    <ul class="task-box ">
+                        
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end box alert -->
+        </div>
+    </div>
+    <!-- end Enter Task -->
+    <!-- satrt box input -->
+    <div id="card-window" class="card-window container col-md-6">
+        <div class="card-head">
+            <h4>Add info Form Here</h4>
+        <button onclick="showWindow()" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+            <div class="card-content">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="first-name">First name</label>
+                      <input type="text" class="form-control" id="first-name">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="last-name">Last name</label>
+                      <input type="text" class="form-control" id="last-name">
+                    </div>
+                  </div>
+                  <div class="form-row align-items-center">
+                    <div class="col-md-6 mb-3">
+                      <label for="age">Age</label>
+                      <input type="text" class="form-control" id="age">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="radioMale">male</label>
+                      <input id = "radioMale" type="radio" name="type" value="male" onclick="genderSelection()">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="radioFmale">fmale</label>
+                      <input id = "radioFmale" type="radio" name="type" value="fmale" onclick="genderSelection()" >
+                    </div>
+                  </div>
+                  <button id="btn-creat" class="btn btn-primary">Submit form</button>
+                  <span class="image">
+                    <img src="./image/1.png" alt="">
+                    <img src="./image/2.png" alt="">
+                    <img  src="./image/3.png" alt="">
+                    <img  src="./image/4.png" alt="">
+                    <img  src="./image/5.png" alt="">
+                    <img  src="./image/6.png" alt="">
+                  </span>
+            </div>
+        </div>
+        <!-- satrt box input -->
+        <!-- start card -->
+    <div class="container-card"></div>
+        <!-- end card -->
+<!-- start dark mode -->
+    <i class="fas fa-adjust" onclick="dark()"></i>
+    <!-- end dark mode -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
